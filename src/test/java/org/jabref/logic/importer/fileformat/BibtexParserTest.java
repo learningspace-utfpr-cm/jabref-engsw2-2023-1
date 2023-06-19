@@ -1559,8 +1559,8 @@ class BibtexParserTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }""";
 
         // read in bibtex string
@@ -1582,8 +1582,8 @@ class BibtexParserTest {
                 Some random comment that should stay here @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }""";
 
         // read in bibtex string
@@ -1628,8 +1628,8 @@ class BibtexParserTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }""";
 
         ParserResult result = parser.parse(new StringReader(bibtexEntry));
@@ -1655,8 +1655,8 @@ class BibtexParserTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }""";
 
         ParserResult result = parser.parse(new StringReader(bibtexEntry));
@@ -1675,8 +1675,8 @@ class BibtexParserTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }""";
 
         ParserResult result = parser.parse(new StringReader(bibtexEntry));
@@ -1695,8 +1695,8 @@ class BibtexParserTest {
                 @Article{test,
                   Author                   = {Foo@Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }""";
 
         ParserResult result = parser.parse(new StringReader(bibtexEntry));

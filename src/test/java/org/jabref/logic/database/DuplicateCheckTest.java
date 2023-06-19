@@ -93,6 +93,7 @@ public class DuplicateCheckTest {
         two.setField(StandardField.VOLUME, "22");
         assertTrue(duplicateChecker.isDuplicate(one, two, BibDatabaseMode.BIBTEX));
 
+        one.setField(StandardField.JOURNAL, "B");
         two.setField(StandardField.JOURNAL, "B");
         assertTrue(duplicateChecker.isDuplicate(one, two, BibDatabaseMode.BIBTEX));
 

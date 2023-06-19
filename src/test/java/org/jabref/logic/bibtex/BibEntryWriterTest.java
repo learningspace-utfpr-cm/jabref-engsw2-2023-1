@@ -69,8 +69,8 @@ class BibEntryWriterTest {
                 @Article{,
                   author  = {Foo Bar},
                   journal = {International Journal of Something},
-                  note    = {some note},
                   number  = {1},
+                  note    = {some note},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
@@ -186,8 +186,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }
                 """.replaceAll("\n", OS.NEWLINE);
 
@@ -265,8 +265,8 @@ class BibEntryWriterTest {
         String bibtexEntry = "\r\n@Article{test," + OS.NEWLINE +
                 "  Author                   = {Foo Bar}," + OS.NEWLINE +
                 "  Journal                  = {International Journal of Something}," + OS.NEWLINE +
-                "  Note                     = {some note}," + OS.NEWLINE +
                 "  Number                   = {1}" + OS.NEWLINE +
+                "  Note                     = {some note}," + OS.NEWLINE +
                 "}" + OS.NEWLINE;
         // @formatter:on
 
@@ -287,8 +287,8 @@ class BibEntryWriterTest {
         String bibtexEntry = "@Article{test,\r\n" +
                 "  Author                   = {Foo Bar},\r\n" +
                 "  Journal                  = {International Journal of Something},\r\n" +
-                "  Note                     = {some note},\r\n" +
                 "  Number                   = {1}\r\n" +
+                "  Note                     = {some note},\r\n" +
                 "}\r\n";
         // @formatter:on
 
@@ -311,8 +311,8 @@ class BibEntryWriterTest {
         String bibtexEntry = "@Article{test,\n" +
                 "  Author                   = {Foo Bar},\n" +
                 "  Journal                  = {International Journal of Something},\n" +
-                "  Note                     = {some note},\n" +
                 "  Number                   = {1}\n" +
+                "  Note                     = {some note},\n" +
                 "}\n";
         // @formatter:on
 
@@ -336,8 +336,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
-                  Note                     = {some note},
                   Number                   = {1},
+                  Note                     = {some note},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
@@ -358,8 +358,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   author  = {BlaBla},
                   journal = {International Journal of Something},
-                  note    = {some note},
                   number  = {1},
+                  note    = {some note},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
@@ -396,8 +396,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   author       = {BlaBla},
                   journal      = {International Journal of Something},
-                  note         = {some note},
                   number       = {1},
+                  note         = {some note},
                   howpublished = {asdf},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
@@ -506,8 +506,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
@@ -698,8 +698,8 @@ class BibEntryWriterTest {
         String expected = OS.NEWLINE + "@Article{test," + OS.NEWLINE +
                 "  author       = {BlaBla}," + OS.NEWLINE +
                 "  journal      = {International Journal of Something}," + OS.NEWLINE +
-                "  note         = {some note}," + OS.NEWLINE +
                 "  number       = {1}," + OS.NEWLINE +
+                "  note         = {some note}," + OS.NEWLINE +
                 "  howpublished = {asdf}," + OS.NEWLINE +
                 "}" + OS.NEWLINE;
         // @formatter:on
@@ -737,8 +737,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
+                  Number                   = {1},
                   Note                     = {some note},
-                  Number                   = {1}
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
@@ -763,7 +763,7 @@ class BibEntryWriterTest {
                   Author                   = {Foo Bar},
                   Journal                  = {International Journal of Something},
                   Number                   = {1},
-                  Note                     = {some note}
+                  Note                     = {some note},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
@@ -785,8 +785,8 @@ class BibEntryWriterTest {
                 @Article{test,
                   author  = {John Doe},
                   journal = {International Journal of Something},
-                  note    = {some note},
                   number  = {1},
+                  note    = {some note},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
         // @formatter:on
