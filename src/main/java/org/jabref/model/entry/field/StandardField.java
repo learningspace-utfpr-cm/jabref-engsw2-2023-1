@@ -129,6 +129,7 @@ public enum StandardField implements Field {
     ZBL_NUMBER("zbl"), // needed for fetcher
     XDATA("xdata", FieldProperty.MULTIPLE_ENTRY_LINK),
     XREF("xref", FieldProperty.SINGLE_ENTRY_LINK),
+    DIMENSIONS("dimensions", FieldProperty.NUMERIC),
 
     // JabRef-specific fields
     GROUPS("groups"),
