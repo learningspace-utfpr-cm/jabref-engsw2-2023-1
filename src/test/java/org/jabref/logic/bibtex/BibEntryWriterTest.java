@@ -265,9 +265,13 @@ class BibEntryWriterTest {
         String bibtexEntry = "\r\n@Article{test," + OS.NEWLINE +
                 "  Author                   = {Foo Bar}," + OS.NEWLINE +
                 "  Journal                  = {International Journal of Something}," + OS.NEWLINE +
-                "  Number                   = {1}" + OS.NEWLINE +
+                "  Number                   = {1}," + OS.NEWLINE +
                 "  Note                     = {some note}," + OS.NEWLINE +
+                "  Volume                     = {16}," + OS.NEWLINE +
+                "  Number                     = {5}," + OS.NEWLINE +
+                "  Pages                     = {2--5}," + OS.NEWLINE +
                 "}" + OS.NEWLINE;
+
         // @formatter:on
 
         // read in bibtex string
