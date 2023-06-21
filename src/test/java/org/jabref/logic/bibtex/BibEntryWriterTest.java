@@ -291,7 +291,7 @@ class BibEntryWriterTest {
         String bibtexEntry = "@Article{test,\r\n" +
                 "  Author                   = {Foo Bar},\r\n" +
                 "  Journal                  = {International Journal of Something},\r\n" +
-                "  Number                   = {1}\r\n" +
+                "  Number                   = {1},\r\n" +
                 "  Note                     = {some note},\r\n" +
                 "}\r\n";
         // @formatter:on
@@ -315,7 +315,7 @@ class BibEntryWriterTest {
         String bibtexEntry = "@Article{test,\n" +
                 "  Author                   = {Foo Bar},\n" +
                 "  Journal                  = {International Journal of Something},\n" +
-                "  Number                   = {1}\n" +
+                "  Number                   = {1},\n" +
                 "  Note                     = {some note},\n" +
                 "}\n";
         // @formatter:on
