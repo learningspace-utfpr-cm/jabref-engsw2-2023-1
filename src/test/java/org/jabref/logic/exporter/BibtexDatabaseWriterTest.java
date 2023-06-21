@@ -966,8 +966,8 @@ public class BibtexDatabaseWriterTest {
         assertEquals("@Article{test," + OS.NEWLINE +
                 "  author  = {Test}," + OS.NEWLINE +
                 "  journal = {International Journal of Something}," + OS.NEWLINE +
-                "  number  = {1}," + OS.NEWLINE +
                 "  note    = {some note}," + OS.NEWLINE +
+                "  number  = {1}," + OS.NEWLINE +
                 "}" + OS.NEWLINE +
                 "" + OS.NEWLINE +
                 "@Comment{jabref-meta: databaseType:bibtex;}" + OS.NEWLINE, stringWriter.toString());

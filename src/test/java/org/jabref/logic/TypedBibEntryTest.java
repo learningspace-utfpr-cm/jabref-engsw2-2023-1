@@ -40,9 +40,6 @@ public class TypedBibEntryTest {
         e.setField(StandardField.TITLE, "abc");
         e.setField(StandardField.JOURNAL, "abc");
         e.setField(StandardField.YEAR, "2015");
-        e.setField(StandardField.VOLUME, "115");
-        e.setField(StandardField.NUMBER, "5");
-        e.setField(StandardField.PAGES, "2--4");
 
         TypedBibEntry typedEntry = new TypedBibEntry(e, BibDatabaseMode.BIBTEX);
         assertTrue(typedEntry.hasAllRequiredFields(entryTypesManager));
