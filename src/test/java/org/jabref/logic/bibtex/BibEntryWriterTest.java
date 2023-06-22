@@ -188,6 +188,13 @@ class BibEntryWriterTest {
                   Journal                  = {International Journal of Something},
                   Number                   = {1},
                   Note                     = {some note},
+                  ISSN                     = {1018-4783},
+                  ISBN                     = {978-3-319-78104-4},
+                  Address                  = {New York, NY, USA},
+                  Keywords                 = {instruction concepts, web based training},
+                  Abstract                 = {Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id bibendum magna, ac tristique nulla. Aliquam ut vulputate velit, ac vulputate leo. Sed malesuada nisi eget lacus rhoncus, et feugiat libero suscipit. Sed vitae ultricies diam. Phasellus arcu tellus, scelerisque a lorem quis, molestie fermentum mi. Morbi nibh ante, sodales at nisl nec, tincidunt dapibus leo. Praesent auctor egestas commodo. Cras elit erat, accumsan a felis at, malesuada iaculis risus. Nunc in tincidunt metus.},
+                  URL                      = {http://doi.acm.org/10.1145/1233341.1233448},
+                  DOI                      = {10.1000.10/123456},
                 }
                 """.replaceAll("\n", OS.NEWLINE);
 
