@@ -16,13 +16,13 @@ public class BibtexEntryTypeDefinitions {
     /**
      * An article from a journal or magazine.
      * <p>
-     * Required fields: author, title, journal, year, volume, number, pages.
-     * Optional fields: month, note.
+     * Required fields: author, title, journal, year.
+     * Optional fields: volume, number, pages, month, note.
      */
     private static final BibEntryType ARTICLE = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Article)
-            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.JOURNAL, StandardField.YEAR, StandardField.VOLUME, StandardField.NUMBER, StandardField.PAGES)
-            .withImportantFields(StandardField.MONTH, StandardField.ISSN, StandardField.NOTE)
+            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.JOURNAL, StandardField.YEAR)
+            .withImportantFields(StandardField.VOLUME, StandardField.NUMBER, StandardField.PAGES, StandardField.MONTH, StandardField.ISSN, StandardField.NOTE, StandardField.ADDRESS, StandardField.KEYWORDS, StandardField.ABSTRACT, StandardField.URL, StandardField.DOI)
             .build();
 
     /**
