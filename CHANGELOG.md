@@ -10,7 +10,6 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 ## [Unreleased]
 
 ### Added
-
 - We added a field showing the BibTeX/biblatex source for added and deleted entries in the "External Changes Resolver" dialog. [#9509](https://github.com/JabRef/jabref/issues/9509)
 - We added a search history list in the search field's right click menu. [#7906](https://github.com/JabRef/jabref/issues/7906)
 - We added a full text fetcher for IACR eprints. [#9651](https://github.com/JabRef/jabref/pull/9651)
@@ -59,6 +58,7 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 
 ### Fixed
 
+- We fixed the types in bib entries. [#2](https://github.com/PamLissa/jabref-engsw2-2023-1/issues/2)
 - We fixed an issue where the browser import would add ' characters before the BibTeX entry on Linux. [#9588](https://github.com/JabRef/jabref/issues/9588)
 - We fixed an issue where searching for a specific term with the DOAB fetcher lead to an exception. [#9571](https://github.com/JabRef/jabref/issues/9571)
 - We fixed an issue where the "Import" -> "Library to import to" did not show the correct library name if two opened libraries had the same suffix. [#9567](https://github.com/JabRef/jabref/issues/9567)
