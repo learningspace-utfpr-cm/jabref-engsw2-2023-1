@@ -10,7 +10,7 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 ## [Unreleased]
 
 ### Added
--
+
 - We added a field showing the BibTeX/biblatex source for added and deleted entries in the "External Changes Resolver" dialog. [#9509](https://github.com/JabRef/jabref/issues/9509)
 - We added a search history list in the search field's right click menu. [#7906](https://github.com/JabRef/jabref/issues/7906)
 - We added a full text fetcher for IACR eprints. [#9651](https://github.com/JabRef/jabref/pull/9651)
@@ -28,7 +28,6 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 - We added the link icon for ISBNs in linked identifiers column. [#9819](https://github.com/JabRef/jabref/issues/9819)
 
 ### Changed
-
 - We upgraded to Lucene 9.5 for the fulltext search. The search index will be rebuild. [#9584](https://github.com/JabRef/jabref/pull/9584)
 - 'Get full text' now also checks the file url. [#568](https://github.com/koppor/jabref/issues/568)
 - JabRef writes a new backup file only if there is a change. Before, JabRef created a backup upon start. [#9679](https://github.com/JabRef/jabref/pull/9679)
