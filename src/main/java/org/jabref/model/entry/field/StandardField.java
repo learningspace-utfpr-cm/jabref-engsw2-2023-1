@@ -13,7 +13,14 @@ import org.jabref.gui.fieldeditors.FieldNameLabel;
  * See {@link FieldNameLabel#getDescription(org.jabref.model.entry.field.Field)} for a description of each field.
  */
 public enum StandardField implements Field {
-
+    ILLUSTRATED("illustrated"),
+    CONFERENCELOCATION("conference-location"),
+    CONFERENCEYEAR("conference-year", FieldProperty.NUMERIC),
+    CONFERENCENUMBER("conference-number"),
+    PAGENAME("page-name"),
+    DIMENSION("dimension"),
+    ORGSHORT("org-short"),
+    FURTHERRESP("furtherresp"),
     ABSTRACT("abstract"),
     ADDENDUM("addendum"),
     ADDRESS("address"),

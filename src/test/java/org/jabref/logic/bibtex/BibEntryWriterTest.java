@@ -163,6 +163,117 @@ class BibEntryWriterTest {
         assertEquals(expected, stringWriter.toString());
     }
 
+
+   @Test
+    void testAbntex2entriesArticle() throws Exception {
+        BibEntry entry = new BibEntry(StandardEntryType.Article);
+        // set an optional field
+        entry.setField(StandardField.SUBTITLE, "a subtitle test!");
+        entry.setField(StandardField.ORGSHORT, "UTFPR");
+        entry.setField(StandardField.PAGENAME, "10-A");
+
+        bibEntryWriter.write(entry, bibWriter, BibDatabaseMode.BIBTEX);
+
+        // @formatter:off
+        String expected = """
+                @Article{,
+                  org-short = {UTFPR},
+                  page-name = {10-A},
+                  subtitle  = {a subtitle test!},
+                }
+                """.replaceAll("\n", OS.NEWLINE);
+        // @formatter:on
+
+        assertEquals(expected, stringWriter.toString());
+    }
+
+    @Test
+    void testAbntex2entriesBook() throws Exception {
+        BibEntry entry = new BibEntry(StandardEntryType.Book);
+        // set an optional field
+        entry.setField(StandardField.SUBTITLE, "a subtitle test!");
+        entry.setField(StandardField.FURTHERRESP, "Co-editor Einstein");
+        entry.setField(StandardField.DIMENSION, "21-cm");
+        entry.setField(StandardField.ORGSHORT, "UTFPR");
+        entry.setField(StandardField.ILLUSTRATED, "principalmente il. color.");
+        entry.setField(StandardField.PAGENAME, "10-A");
+
+        bibEntryWriter.write(entry, bibWriter, BibDatabaseMode.BIBTEX);
+
+        // @formatter:off
+        String expected = """
+                @Book{,
+                  dimension   = {21-cm},
+                  furtherresp = {Co-editor Einstein},
+                  illustrated = {principalmente il. color.},
+                  org-short   = {UTFPR},
+                  page-name   = {10-A},
+                  subtitle    = {a subtitle test!},
+                }
+                """.replaceAll("\n", OS.NEWLINE);
+        // @formatter:on
+
+        assertEquals(expected, stringWriter.toString());
+    }
+
+    @Test
+    void testAbntex2entriesInProceedings() throws Exception {
+        BibEntry entry = new BibEntry(StandardEntryType.InProceedings);
+        // set an optional field
+        entry.setField(StandardField.SUBTITLE, "a subtitle test!");
+        entry.setField(StandardField.ORGSHORT, "UTFPR");
+        entry.setField(StandardField.PAGENAME, "10-A");
+        entry.setField(StandardField.CONFERENCENUMBER, "10");
+        entry.setField(StandardField.CONFERENCELOCATION, "New York");
+        entry.setField(StandardField.CONFERENCEYEAR, "2019");
+
+        bibEntryWriter.write(entry, bibWriter, BibDatabaseMode.BIBTEX);
+
+        // @formatter:off
+        String expected = """
+                @InProceedings{,
+                  conference-location = {New York},
+                  conference-number   = {10},
+                  conference-year     = {2019},
+                  org-short           = {UTFPR},
+                  page-name           = {10-A},
+                  subtitle            = {a subtitle test!},
+                }
+                """.replaceAll("\n", OS.NEWLINE);
+        // @formatter:on
+
+        assertEquals(expected, stringWriter.toString());
+    }
+
+    @Test
+    void testAbntex2entriesProceedings() throws Exception {
+        BibEntry entry = new BibEntry(StandardEntryType.Proceedings);
+        // set an optional field
+        entry.setField(StandardField.SUBTITLE, "a subtitle test!");
+        entry.setField(StandardField.ORGSHORT, "UTFPR");
+        entry.setField(StandardField.PAGENAME, "10-A");
+        entry.setField(StandardField.CONFERENCENUMBER, "10");
+        entry.setField(StandardField.CONFERENCELOCATION, "New York");
+        entry.setField(StandardField.CONFERENCEYEAR, "2019");
+
+        bibEntryWriter.write(entry, bibWriter, BibDatabaseMode.BIBTEX);
+
+        // @formatter:off
+        String expected = """
+                @Proceedings{,
+                  conference-location = {New York},
+                  conference-number   = {10},
+                  conference-year     = {2019},
+                  org-short           = {UTFPR},
+                  page-name           = {10-A},
+                  subtitle            = {a subtitle test!},
+                }
+                """.replaceAll("\n", OS.NEWLINE);
+        // @formatter:on
+
+        assertEquals(expected, stringWriter.toString());
+    }
+
     @Test
     void writeReallyUnknownTypeTest() throws Exception {
         String expected = """
