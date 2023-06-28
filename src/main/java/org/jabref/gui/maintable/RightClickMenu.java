@@ -64,6 +64,7 @@ public class RightClickMenu {
                 SpecialFieldMenuItemFactory.createSpecialFieldMenu(SpecialField.RANKING, factory, libraryTab.frame(), dialogService, preferencesService, undoManager, stateManager),
                 SpecialFieldMenuItemFactory.getSpecialFieldSingleItem(SpecialField.RELEVANCE, factory, libraryTab.frame(), dialogService, preferencesService, undoManager, stateManager),
                 SpecialFieldMenuItemFactory.getSpecialFieldSingleItem(SpecialField.QUALITY, factory, libraryTab.frame(), dialogService, preferencesService, undoManager, stateManager),
+
                 SpecialFieldMenuItemFactory.getSpecialFieldSingleItem(SpecialField.PRINTED, factory, libraryTab.frame(), dialogService, preferencesService, undoManager, stateManager),
                 SpecialFieldMenuItemFactory.createSpecialFieldMenu(SpecialField.PRIORITY, factory, libraryTab.frame(), dialogService, preferencesService, undoManager, stateManager),
                 SpecialFieldMenuItemFactory.createSpecialFieldMenu(SpecialField.READ_STATUS, factory, libraryTab.frame(), dialogService, preferencesService, undoManager, stateManager),
@@ -74,6 +75,7 @@ public class RightClickMenu {
                 factory.createMenuItem(StandardActions.ATTACH_FILE_FROM_URL, new AttachFileFromURLAction(dialogService, stateManager, taskExecutor, preferencesService)),
                 factory.createMenuItem(StandardActions.OPEN_FOLDER, new OpenFolderAction(dialogService, stateManager, preferencesService)),
                 factory.createMenuItem(StandardActions.OPEN_EXTERNAL_FILE, new OpenExternalFileAction(dialogService, stateManager, preferencesService)),
+                factory.createMenuItem(StandardActions.EXTRACT_CROSSREF, new ExtractCrossrefAction(dialogService, preferencesService, stateManager)),
 
                 factory.createMenuItem(StandardActions.OPEN_URL, new OpenUrlAction(dialogService, stateManager, preferencesService)),
                 factory.createMenuItem(StandardActions.SEARCH_SHORTSCIENCE, new SearchShortScienceAction(dialogService, stateManager, preferencesService)),

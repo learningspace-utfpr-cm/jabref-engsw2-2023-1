@@ -55,6 +55,9 @@ public enum StandardActions implements Action {
     SKIMMED(Localization.lang("Set read status to skimmed"), IconTheme.JabRefIcons.READ_STATUS_SKIMMED, KeyBinding.SKIMMED),
     RELEVANCE(Localization.lang("Relevance"), IconTheme.JabRefIcons.RELEVANCE),
     RELEVANT(Localization.lang("Toggle relevance"), IconTheme.JabRefIcons.RELEVANCE),
+
+    EXTRACT_CROSSREF(Localization.lang("Crossref"), IconTheme.JabRefIcons.RELEVANCE),
+
     NEW_LIBRARY(Localization.lang("New library"), IconTheme.JabRefIcons.NEW),
     OPEN_LIBRARY(Localization.lang("Open library"), IconTheme.JabRefIcons.OPEN, KeyBinding.OPEN_DATABASE),
     IMPORT(Localization.lang("Import"), IconTheme.JabRefIcons.IMPORT),
