@@ -12,5 +12,8 @@
             </b:Author>
         </b:Author>
         <b:JournalName>Test</b:JournalName>
+        <b:Volume>16</b:Volume>
+        <b:Number>5</b:Number>
+        <b:Pages>2–5</b:Pages>
     </b:Source>
 </b:Sources>

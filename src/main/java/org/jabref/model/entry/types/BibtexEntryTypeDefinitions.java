@@ -22,7 +22,7 @@ public class BibtexEntryTypeDefinitions {
     private static final BibEntryType ARTICLE = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Article)
             .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.JOURNAL, StandardField.YEAR)
-            .withImportantFields(StandardField.VOLUME, StandardField.NUMBER, StandardField.PAGES, StandardField.MONTH, StandardField.ISSN, StandardField.NOTE)
+            .withImportantFields(StandardField.VOLUME, StandardField.NUMBER, StandardField.PAGES, StandardField.MONTH, StandardField.ISSN, StandardField.NOTE, StandardField.ADDRESS, StandardField.KEYWORDS, StandardField.ABSTRACT, StandardField.URL, StandardField.DOI, StandardField.ANNOTE)
             .build();
 
     /**
@@ -34,7 +34,7 @@ public class BibtexEntryTypeDefinitions {
     private static final BibEntryType BOOK = new BibEntryTypeBuilder()
             .withType(StandardEntryType.Book)
             .withRequiredFields(new OrFields(StandardField.AUTHOR, StandardField.EDITOR), StandardField.TITLE, StandardField.PUBLISHER, StandardField.YEAR)
-            .withImportantFields(StandardField.VOLUME, StandardField.NUMBER, StandardField.SERIES, StandardField.ADDRESS, StandardField.EDITION, StandardField.MONTH, StandardField.ISBN, StandardField.NOTE)
+            .withImportantFields(StandardField.VOLUME, StandardField.NUMBER, StandardField.SERIES, StandardField.ADDRESS, StandardField.EDITION, StandardField.MONTH, StandardField.ISBN, StandardField.NOTE, StandardField.ISSN, StandardField.PAGES, StandardField.ORGANIZATION, StandardField.SUBTITLE, StandardField.DIMENSIONS)
             .build();
 
     /**
@@ -81,7 +81,7 @@ public class BibtexEntryTypeDefinitions {
     private static final BibEntryType INCOLLECTION = new BibEntryTypeBuilder()
             .withType(StandardEntryType.InCollection)
             .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.BOOKTITLE, StandardField.PUBLISHER, StandardField.YEAR)
-            .withImportantFields(StandardField.EDITOR, StandardField.VOLUME, StandardField.NUMBER, StandardField.SERIES, StandardField.TYPE, StandardField.CHAPTER, StandardField.PAGES, StandardField.ADDRESS, StandardField.EDITION, StandardField.MONTH, StandardField.ISBN, StandardField.NOTE)
+            .withImportantFields(StandardField.EDITOR, StandardField.VOLUME, StandardField.NUMBER, StandardField.SERIES, StandardField.TYPE, StandardField.CHAPTER, StandardField.PAGES, StandardField.ADDRESS, StandardField.EDITION, StandardField.MONTH, StandardField.ISBN, StandardField.NOTE, StandardField.ANNOTE)
             .build();
 
     /**
@@ -93,7 +93,7 @@ public class BibtexEntryTypeDefinitions {
     private static final BibEntryType INPROCEEDINGS = new BibEntryTypeBuilder()
             .withType(StandardEntryType.InProceedings)
             .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.BOOKTITLE, StandardField.YEAR)
-            .withImportantFields(StandardField.EDITOR, StandardField.VOLUME, StandardField.NUMBER, StandardField.SERIES, StandardField.PAGES, StandardField.ADDRESS, StandardField.MONTH, StandardField.ORGANIZATION, StandardField.PUBLISHER, StandardField.NOTE)
+            .withImportantFields(StandardField.EDITOR, StandardField.VOLUME, StandardField.NUMBER, StandardField.SERIES, StandardField.PAGES, StandardField.ADDRESS, StandardField.MONTH, StandardField.ORGANIZATION, StandardField.PUBLISHER, StandardField.NOTE, StandardField.ADDRESS, StandardField.ANNOTE)
             .build();
 
     /**
