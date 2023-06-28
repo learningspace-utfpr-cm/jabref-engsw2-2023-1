@@ -42,7 +42,18 @@ public enum StandardEntryType implements EntryType {
     Thesis("Thesis"),
     WWW("WWW"),
     Software("Software"),
-    Dataset("Dataset");
+    Dataset("Dataset"),
+    //AbnTeX
+    Month("Month"), 
+    Number("Number"), 
+    Pages("Pages"), 
+    Volume("Volume"), 
+    Section("Section"), 
+    Note("Note"), 
+    Urlaccessdate("Urlaccessdate"), 
+    Subtitle("Subtitle");
+
+
 
     private final String displayName;
 
