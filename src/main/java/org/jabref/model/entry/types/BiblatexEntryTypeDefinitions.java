@@ -30,7 +30,7 @@ public class BiblatexEntryTypeDefinitions {
                     StandardField.ISSN, StandardField.ADDENDUM, StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT,
                     StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
             .withRequiredFields(
-                    StandardField.AUTHOR, StandardField.TITLE, StandardField.JOURNALTITLE, StandardField.DATE)
+                    StandardField.AUTHOR, StandardField.TITLE, StandardField.JOURNALTITLE, StandardField.DATE, StandardField.YEAR)
             .build();
 
     private static final BibEntryType BOOK = new BibEntryTypeBuilder()
@@ -40,7 +40,7 @@ public class BiblatexEntryTypeDefinitions {
                     StandardField.MAINTITLEADDON, StandardField.VOLUME, StandardField.EDITION, StandardField.PUBLISHER, StandardField.ISBN,
                     StandardField.CHAPTER, StandardField.PAGES, StandardField.PAGETOTAL, StandardField.DOI, StandardField.EPRINT,
                     StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
-            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE)
+            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.DATE, StandardField.PUBLISHER, StandardField.YEAR)
             .withDetailFields(StandardField.EDITOR, StandardField.EDITORA, StandardField.EDITORB, StandardField.EDITORC,
                     StandardField.TRANSLATOR, StandardField.ANNOTATOR, StandardField.COMMENTATOR, StandardField.INTRODUCTION,
                     StandardField.FOREWORD, StandardField.AFTERWORD, StandardField.SUBTITLE, StandardField.TITLEADDON,
@@ -282,7 +282,7 @@ public class BiblatexEntryTypeDefinitions {
                     StandardField.BOOKTITLEADDON, StandardField.EVENTTITLE, StandardField.VOLUME, StandardField.PUBLISHER,
                     StandardField.ISBN, StandardField.CHAPTER, StandardField.PAGES, StandardField.DOI, StandardField.EPRINT,
                     StandardField.EPRINTCLASS, StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
-            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.BOOKTITLE, StandardField.DATE)
+            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.BOOKTITLE, StandardField.DATE, StandardField.YEAR)
             .withDetailFields(StandardField.EDITOR, StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.MAINTITLE,
                     StandardField.MAINSUBTITLE, StandardField.MAINTITLEADDON, StandardField.BOOKSUBTITLE, StandardField.BOOKTITLEADDON,
                     StandardField.EVENTTITLE, StandardField.EVENTTITLEADDON, StandardField.EVENTDATE, StandardField.VENUE,
@@ -338,7 +338,7 @@ public class BiblatexEntryTypeDefinitions {
             .withImportantFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.CHAPTER,
                     StandardField.PAGES, StandardField.PAGETOTAL, StandardField.DOI, StandardField.EPRINT, StandardField.EPRINTCLASS,
                     StandardField.EPRINTTYPE, StandardField.URL, StandardField.URLDATE)
-            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.TYPE, StandardField.INSTITUTION, StandardField.DATE)
+            .withRequiredFields(StandardField.AUTHOR, StandardField.TITLE, StandardField.TYPE, StandardField.INSTITUTION, StandardField.DATE, StandardField.YEAR)
             .withDetailFields(StandardField.SUBTITLE, StandardField.TITLEADDON, StandardField.LANGUAGE, StandardField.NOTE,
                     StandardField.LOCATION, StandardField.ISBN, StandardField.CHAPTER, StandardField.PAGES,
                     StandardField.PAGETOTAL, StandardField.ADDENDUM, StandardField.PUBSTATE, StandardField.DOI, StandardField.EPRINT,
