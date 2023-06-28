@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.jabref.gui.DialogService;
 import org.jabref.gui.StateManager;
 import org.jabref.gui.actions.SimpleCommand;
+import org.jabref.model.database.BibDatabase;
 import org.jabref.model.entry.BibEntry;
 import org.jabref.model.entry.field.InternalField;
 import org.jabref.model.entry.field.StandardField;
@@ -17,11 +18,13 @@ public class ExtractCrossrefAction extends SimpleCommand {
     private final DialogService dialogService;
     private final PreferencesService preferencesService;
     private final StateManager stateManager;
+    private BibDatabase activeDatabase;
 
     public ExtractCrossrefAction(DialogService dialogService, PreferencesService preferencesService, StateManager stateManager) {
         this.dialogService = dialogService;
         this.preferencesService = preferencesService;
         this.stateManager = stateManager;
+        this.activeDatabase = stateManager.getActiveDatabase().get().getDatabase();
     }
 
     @Override
@@ -33,14 +36,14 @@ public class ExtractCrossrefAction extends SimpleCommand {
     public void checkForDuplicates(List<BibEntry> entries) {
         System.out.println(entries);
         List<BibEntry> createdRefs = new ArrayList<BibEntry>();
-            for (BibEntry entry : entries) {
+            for (int i = 0; i < entries.size(); i++) {
                 List<BibEntry> entriesToRemoveFields = new ArrayList<BibEntry>();
-                entriesToRemoveFields.add(entry);
-                for (BibEntry entry1 : entries) {
-                    if (!entriesToRemoveFields.contains(entry1)) {
-                        if (hasAllFields(entry) && hasAllFields(entry1)) {
-                            if (checkEntriesForSameFields(entry, entry1)) {
-                                entriesToRemoveFields.add(entry1);
+                entriesToRemoveFields.add(entries.get(i));
+                for (int j = 0; j < entries.size(); j++) {
+                    if (!entriesToRemoveFields.contains(entries.get(j))) {
+                        if (hasAllFields(entries.get(i)) && hasAllFields(entries.get(j))) {
+                            if (checkEntriesForSameFields(entries.get(i), entries.get(j))) {
+                                entriesToRemoveFields.add(entries.get(j));
                             }
                         }
                     }
@@ -49,7 +52,11 @@ public class ExtractCrossrefAction extends SimpleCommand {
                     createdRefs.add(extractCommonFields(entriesToRemoveFields));
                     }
                 }
-        entries.addAll(createdRefs);
+            System.out.println("Saiu o laço");
+        if (!createdRefs.isEmpty()) {
+            entries.addAll(createdRefs);
+            activeDatabase.insertEntries(createdRefs);
+        }
     }
 
     private boolean checkEntriesForSameFields(BibEntry entry1, BibEntry entry2) {
@@ -76,6 +83,7 @@ public class ExtractCrossrefAction extends SimpleCommand {
         crossEntry.setField(StandardField.PUBLISHER, publisher);
         crossEntry.setField(StandardField.EDITOR, editor);
         crossEntry.setField(StandardField.YEAR, year);
+        System.out.println(entries.size());
         for (int i = 0; i < entries.size(); i++) {
             entries.get(i).clearField(StandardField.BOOKTITLE);
             entries.get(i).clearField(StandardField.PUBLISHER);
@@ -84,6 +92,7 @@ public class ExtractCrossrefAction extends SimpleCommand {
 
             entries.get(i).setField(StandardField.CROSSREF, refID);
         }
+        System.out.println(crossEntry);
         return crossEntry;
     }
 
