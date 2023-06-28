@@ -34,7 +34,6 @@ public class ExtractCrossrefAction extends SimpleCommand {
     }
 
     public void checkForDuplicates(List<BibEntry> entries) {
-        System.out.println(entries);
         List<BibEntry> createdRefs = new ArrayList<BibEntry>();
             for (int i = 0; i < entries.size(); i++) {
                 List<BibEntry> entriesToRemoveFields = new ArrayList<BibEntry>();
@@ -52,7 +51,6 @@ public class ExtractCrossrefAction extends SimpleCommand {
                     createdRefs.add(extractCommonFields(entriesToRemoveFields));
                     }
                 }
-            System.out.println("Saiu o laço");
         if (!createdRefs.isEmpty()) {
             entries.addAll(createdRefs);
             activeDatabase.insertEntries(createdRefs);
@@ -83,7 +81,6 @@ public class ExtractCrossrefAction extends SimpleCommand {
         crossEntry.setField(StandardField.PUBLISHER, publisher);
         crossEntry.setField(StandardField.EDITOR, editor);
         crossEntry.setField(StandardField.YEAR, year);
-        System.out.println(entries.size());
         for (int i = 0; i < entries.size(); i++) {
             entries.get(i).clearField(StandardField.BOOKTITLE);
             entries.get(i).clearField(StandardField.PUBLISHER);
@@ -92,7 +89,6 @@ public class ExtractCrossrefAction extends SimpleCommand {
 
             entries.get(i).setField(StandardField.CROSSREF, refID);
         }
-        System.out.println(crossEntry);
         return crossEntry;
     }
 
