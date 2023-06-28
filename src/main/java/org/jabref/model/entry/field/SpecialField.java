@@ -44,7 +44,8 @@ public enum SpecialField implements Field {
 
     RELEVANCE("relevance",
             SpecialFieldValue.RELEVANT
-    );
+    ),
+    EXTRACT_CROSSREF("extrair", SpecialFieldValue.EXTRACT_CROSSREF);
 
     private final List<SpecialFieldValue> values;
     private final KeywordList keywords;

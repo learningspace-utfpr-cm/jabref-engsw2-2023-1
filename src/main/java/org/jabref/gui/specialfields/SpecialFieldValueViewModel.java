@@ -48,6 +48,7 @@ public class SpecialFieldValueViewModel {
             case READ -> Localization.lang("Read status read");
             case SKIMMED -> Localization.lang("Read status skimmed");
             case RELEVANT -> Localization.lang("Toggle relevance");
+            case EXTRACT_CROSSREF -> Localization.lang("Extrair");
         };
     }
 
@@ -69,6 +70,7 @@ public class SpecialFieldValueViewModel {
             case READ -> StandardActions.READ;
             case SKIMMED -> StandardActions.SKIMMED;
             case RELEVANT -> StandardActions.RELEVANT;
+            case EXTRACT_CROSSREF -> StandardActions.EXTRACT_CROSSREF;
         };
     }
 }

@@ -70,6 +70,8 @@ public class SpecialFieldViewModel {
             case RANKING -> StandardActions.RANKING;
             case READ_STATUS -> StandardActions.READ_STATUS;
             case RELEVANCE -> StandardActions.RELEVANCE;
+
+            case EXTRACT_CROSSREF -> StandardActions.EXTRACT_CROSSREF;
         };
     }
 
