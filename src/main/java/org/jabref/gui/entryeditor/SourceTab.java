@@ -50,6 +50,10 @@ import org.jabref.model.database.BibDatabaseContext;
 import org.jabref.model.database.BibDatabaseMode;
 import org.jabref.model.entry.BibEntry;
 import org.jabref.model.entry.field.Field;
+import org.jabref.model.entry.field.InternalField;
+import org.jabref.model.entry.field.StandardField;
+import org.jabref.model.entry.field.UnknownField;
+import org.jabref.model.entry.types.StandardEntryType;
 import org.jabref.model.util.FileUpdateMonitor;
 
 import de.saxsys.mvvmfx.utils.validation.ObservableRuleBasedValidator;
@@ -115,6 +119,118 @@ public class SourceTab extends EntryEditorTab {
             searchHighlightPattern = newValue.flatMap(SearchQuery::getPatternForWords);
             highlightSearchPattern();
         });
+    }
+
+    /**
+     * Create a proceedings crossref to an inproceedings entry
+     *
+     * the following fields are extracted:
+     *         Address
+     *         conference-year
+     *         Conference-location
+     *         organization
+     *         publisher
+     *         Year
+     *         booktitle
+     *         title
+     * @param inproceedings inproceedings entry to extract crossref
+     */
+    protected void createProceedingCrossref(BibEntry inproceedings){
+        BibEntry newBib = new BibEntry(StandardEntryType.Proceedings);
+
+        // if the inproceedings dont have any field, just return without creating proceedings
+        if(inproceedings == null ||inproceedings.isEmpty()){
+            return;
+        }
+
+        String tag = "proc-";
+
+        if (inproceedings.getField(StandardField.ADDRESS).isPresent()){
+            newBib.setField(StandardField.ADDRESS, inproceedings.getField(StandardField.ADDRESS).get());
+        }
+        if (inproceedings.getField(new UnknownField("conference-year")).isPresent()){
+            newBib.setField(new UnknownField("conference-year"), inproceedings.getField(new UnknownField("conference-year")).get());
+        }
+        if (inproceedings.getField(new UnknownField("conference-location")).isPresent()){
+            newBib.setField(new UnknownField("conference-location"), inproceedings.getField(new UnknownField("conference-location")).get());
+        }
+        if (inproceedings.getField(StandardField.ORGANIZATION).isPresent()){
+            newBib.setField(StandardField.ORGANIZATION, inproceedings.getField(StandardField.ORGANIZATION).get());
+        }
+        if (inproceedings.getField(StandardField.PUBLISHER).isPresent()){
+            newBib.setField(StandardField.PUBLISHER, inproceedings.getField(StandardField.PUBLISHER).get());
+        }
+        if (inproceedings.getField(StandardField.YEAR).isPresent()){
+            newBib.setField(StandardField.YEAR, inproceedings.getField(StandardField.YEAR).get());
+        }
+        if (inproceedings.getField(StandardField.BOOKTITLE).isPresent()){
+            newBib.setField(StandardField.BOOKTITLE, inproceedings.getField(StandardField.BOOKTITLE).get());
+        }
+        if (inproceedings.getField(StandardField.TITLE).isPresent()){
+            tag = tag + inproceedings.getField(StandardField.TITLE).get();
+            newBib.setField(StandardField.TITLE, inproceedings.getField(StandardField.TITLE).get());
+        }
+
+        // if after all checks, the new entry doesnt have any field to extract, do not create a new entry
+        if(newBib.isEmpty()){
+            return;
+        }
+        BibDatabase database = this.stateManager.getActiveDatabase().get().getDatabase();
+
+        tag = tag.replace(" ", "_"); // remove the blank spaces in key name
+        // check if the new entry already exists
+        if(database.getNumberOfCitationKeyOccurrences(tag) == 0){
+            newBib.setField(InternalField.KEY_FIELD, tag);
+            database.insertEntry(newBib);
+            inproceedings.setField(StandardField.CROSSREF, tag);
+        }
+    }
+
+    void createArticleCrossref(BibEntry article){
+        BibEntry newBib = new BibEntry(StandardEntryType.Misc);
+
+        // if the inproceedings dont have any field, just return without creating proceedings
+        if(article == null || article.isEmpty()){
+            return;
+        }
+
+        String tag = "misc-";
+
+
+        if (article.getField(StandardField.ADDRESS).isPresent()){
+            newBib.setField(StandardField.ADDRESS, article.getField(StandardField.ADDRESS).get());
+        }
+        if (article.getField(new UnknownField("eissn")).isPresent()){
+            newBib.setField(new UnknownField("eissn"), article.getField(new UnknownField("eissn")).get());
+        }
+
+        if (article.getField(StandardField.PUBLISHER).isPresent()){
+            tag = tag + article.getField(StandardField.PUBLISHER).get();
+            newBib.setField(StandardField.PUBLISHER, article.getField(StandardField.PUBLISHER).get());
+        }
+        if (article.getField(StandardField.JOURNAL).isPresent()){
+            tag = tag + article.getField(StandardField.JOURNAL).get();
+            newBib.setField(StandardField.JOURNAL, article.getField(StandardField.JOURNAL).get());
+        }
+        if (article.getField(StandardField.ISSN).isPresent()){
+            newBib.setField(StandardField.ISSN, article.getField(StandardField.ISSN).get());
+        }
+
+
+
+        // if after all checks, the new entry doesnt have any field to extract, do not create a new entry
+        if(newBib.isEmpty()){
+            return;
+        }
+        BibDatabase database = this.stateManager.getActiveDatabase().get().getDatabase();
+
+        tag = tag.replace(" ", "_"); // remove the blank spaces in key name
+        // check if the new entry already exists
+        if(database.getNumberOfCitationKeyOccurrences(tag) == 0){
+            newBib.setField(InternalField.KEY_FIELD, tag);
+            database.insertEntry(newBib);
+            article.setField(StandardField.CROSSREF, tag);
+        }
     }
 
     private void highlightSearchPattern() {
@@ -206,7 +322,13 @@ public class SourceTab extends EntryEditorTab {
         codeArea.focusedProperty().addListener((obs, oldValue, onFocus) -> {
             if (!onFocus && (currentEntry != null)) {
                 storeSource(currentEntry, codeArea.textProperty().getValue());
+                if(this.currentEntry.getType().equals(StandardEntryType.InProceedings)){
+                    createProceedingCrossref(this.currentEntry);
+                } else if (this.currentEntry.getType().equals(StandardEntryType.Article)) {
+                    createArticleCrossref(this.currentEntry);
+                }
             }
+
         });
         VirtualizedScrollPane<CodeArea> scrollableCodeArea = new VirtualizedScrollPane<>(codeArea);
         this.setContent(scrollableCodeArea);
